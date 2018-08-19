@@ -1,0 +1,45 @@
+html, body { height: 100%; }
+/*body {
+
+    overflow: hidden;
+}*/
+.moving-zone {
+    position: absolute;
+    top:50%; left:50%;
+    width:300px; height:120px;
+    margin: -60px 0 0 -150px;
+    perspective: 800px;
+}
+.newpopup {
+    position: absolute;
+    padding: 10px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+  }
+.newpopup:before {
+    content: '';
+    position: absolute;
+    left:5%; top:5%;
+    width:90%; height:90%;
+    border-radius: inherit;
+    transform: translateZ(-100px);
+}
+.newpopup-content {
+    background: #444;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px 0 10px 0;
+}
+.newpopup-text {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 100;
+    text-align: center;
+    transform: translateZ(15px);
+}
+.newpopup-text b {
+    color: coral;
+    font-weight: 300;
+}

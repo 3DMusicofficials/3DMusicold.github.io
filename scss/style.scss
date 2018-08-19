@@ -1,0 +1,48 @@
+* { margin: 0; padding: 0; }
+a { text-decoration: none; }
+$color_primary: #004eff;
+$color_secondary: #ff2700;
+
+@mixin transform($transform) {
+  -ms-transform: $transform;
+  -webkit-transform: $transform;
+  transform: $transform;
+}
+.video-item { width: 100%; max-width: 600px; margin: 200px auto 0;
+  figure { position: relative; width: 100%; font-size: 0;
+    img { width: 100%; }
+    a {
+      &:before { content: ''; position: absolute; top: 50%; left: 50%; width: 65px; height: 65px; margin-top: -32.5px; margin-left: -32.5px; border-radius: 50%; background-color: rgba($color_primary, 0.9); z-index: 10; }
+      &:after { content: ''; position: absolute; top: 50%; left: 50%; margin-top: -12.5px; margin-left: -7px; border: solid 13px transparent; border-left: solid 20px; border-left-color: #fff; z-index: 10; }
+      &:hover {
+        &:before { background-color: rgba($color_secondary, 0.9); }
+      }
+    }
+  }
+}
+.modal-open { overflow: hidden; }
+
+.lightbox { position: fixed; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(255,255,255,0.8); padding: 120px 10px; display: none; box-sizing: border-box; overflow: auto; z-index: 100; }
+
+.popup-modal { position: relative; margin: 0 auto; display: none;
+  .close { position: absolute; top: 18px; right: 30px; width: 28px; height: 28px; border: solid 1px $color_primary; border-radius: 50%; @include transform(rotate(45deg)); cursor: pointer;
+    &:before { position: absolute; width: 14px; height: 2px; top: 50%; left: 50%; margin-left: -7px; background-color: $color_primary; content: ''; @include transform(translateY(-50%)); }
+    &:after { position: absolute; width: 14px; height: 2px; top: 50%; right: 50%; margin-right: -7px; background-color: $color_primary; content: ''; @include transform(translateY(-50%) rotate(90deg)); }
+    &:hover { border-color: $color_secondary;
+      &:before { background-color: $color_secondary; }
+      &:after { background-color: $color_secondary; }
+    }
+  }
+}
+
+.post-popup { width: 100%; max-width: 875px; background-color: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.22);
+  .popup-header { padding: 20px 30px; font-size: 14px; margin-right: 60px;
+  }
+  .popup-video { font-size: 0;
+    video { width: 100%; }
+    img { width: 100%; }
+  }
+  .popup-main { padding: 40px 30px;
+    p { margin: 0 0 10px 0; }
+  }
+}
